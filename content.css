@@ -1,0 +1,40 @@
+/* content.css - Streamlined Google Drive Translator Injected Styles */
+
+:root {
+  --dt-accent-cyan: #00f2fe;
+}
+
+/* 1. Inline Folder/File Name Translation Badge */
+.dt-inline-translation-badge {
+  display: inline-block !important;
+  margin-left: 8px !important;
+  font-size: 0.85em !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  color: var(--dt-accent-cyan) !important;
+  background: rgba(0, 242, 254, 0.08) !important;
+  border: 1px dashed rgba(0, 242, 254, 0.25) !important;
+  border-radius: 4px !important;
+  padding: 1px 6px !important;
+  letter-spacing: 0.2px !important;
+  text-shadow: 0 0 5px rgba(0, 242, 254, 0.15) !important;
+  vertical-align: middle !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  pointer-events: none !important;
+  animation: dtBadgeFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes dtBadgeFadeIn {
+  from { opacity: 0; transform: translateX(5px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Handle light theme colors if matching Google's light palette */
+@media (prefers-color-scheme: light) {
+  .dt-inline-translation-badge {
+    color: #0369a1 !important;
+    background: rgba(3, 105, 161, 0.08) !important;
+    border-color: rgba(3, 105, 161, 0.25) !important;
+    text-shadow: none !important;
+  }
+}

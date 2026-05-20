@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveTranslate - Pure Inline Translator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body class="dark-mode">
+  <div class="glass-container">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo-glow"></div>
+        <span class="brand-title">Drive<span class="gradient-text">Translate</span></span>
+      </div>
+      <button id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </header>
+
+    <!-- Auto-Translate Toggle Switch -->
+    <div class="control-row">
+      <div class="control-info">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+        <span class="control-label">Auto-Translate Folders</span>
+      </div>
+      <label class="switch-container">
+        <input type="checkbox" id="auto-translate-toggle">
+        <span class="switch-slider"></span>
+      </label>
+    </div>
+
+    <!-- Source Language Selector -->
+    <div class="control-row">
+      <div class="control-info">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="control-label">Translate From</span>
+      </div>
+      <div class="custom-dropdown" id="source-dropdown">
+        <div class="dropdown-trigger">
+          <span class="selected-val" id="source-selected-val">Chinese (Simplified)</span>
+          <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="dropdown-menu">
+          <div class="search-box">
+            <input type="text" class="search-input" id="source-search-input" placeholder="Search...">
+            <svg class="search-icon" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <div class="dropdown-options" id="source-options"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Target Language Selector -->
+    <div class="control-row">
+      <div class="control-info">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span class="control-label">Translate To</span>
+      </div>
+      <div class="custom-dropdown" id="target-dropdown">
+        <div class="dropdown-trigger">
+          <span class="selected-val" id="target-selected-val">English</span>
+          <svg class="chevron-icon" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="dropdown-menu">
+          <div class="search-box">
+            <input type="text" class="search-input" id="target-search-input" placeholder="Search...">
+            <svg class="search-icon" viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <div class="dropdown-options" id="target-options"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared languages db, then popup logic -->
+  <script src="languages.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

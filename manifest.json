@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "DriveTranslate - Pure Inline Translator",
+  "version": "1.0.0",
+  "description": "Automatically translate Chinese folder and file names inside Google Drive inline on your screen.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://drive.google.com/*",
+        "https://docs.google.com/*"
+      ],
+      "all_frames": true,
+      "js": [
+        "languages.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "languages.js"
+      ],
+      "matches": [
+        "https://drive.google.com/*",
+        "https://docs.google.com/*"
+      ]
+    }
+  ]
+}
