@@ -279,9 +279,7 @@ input:checked + .switch-slider:before {
   top: calc(100% + 5px);
   right: 0;
   width: 175px;
-  background: var(--card-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--bg-color);
   border: 1px solid var(--border-color);
   border-radius: 10px;
   box-shadow: var(--shadow-premium);
@@ -343,9 +341,7 @@ input:checked + .switch-slider:before {
   max-height: 120px;
   overflow-y: auto;
   padding: 4px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: block;
 }
 
 /* Custom Scrollbar for Options Menu */
@@ -372,14 +368,15 @@ input:checked + .switch-slider:before {
   font-weight: 500;
   border-radius: 6px;
   cursor: pointer;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   transition: all 0.12s ease;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 2px;
 }
 
-.option-item:hover {
+.option-item:hover, .option-item.highlighted {
   background: var(--button-hover-bg);
   color: var(--text-primary);
 }
