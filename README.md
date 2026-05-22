@@ -118,7 +118,6 @@ All settings are persisted via `chrome.storage.local` and automatically sync acr
 | Site | Support |
 |------|---------|
 | `drive.google.com` | ✅ Full support (all frames) |
-| `docs.google.com` | ✅ Full support (all frames) |
 
 ---
 

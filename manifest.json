@@ -15,8 +15,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://drive.google.com/*",
-        "https://docs.google.com/*"
+        "https://drive.google.com/*"
       ],
       "all_frames": true,
       "js": [
@@ -50,8 +49,7 @@
         "languages.js"
       ],
       "matches": [
-        "https://drive.google.com/*",
-        "https://docs.google.com/*"
+        "https://drive.google.com/*"
       ]
     }
   ]
